@@ -11,11 +11,16 @@ services:
     ports:
       - "8080:80"
     environment:
-      DB_HOST: mysql
+      DB_HOST: db
       DB_PASSWORD: cg4z1N
+      DB_DATABASE: crud-gazin
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
+    depends_on:
+      - db
+    links:
+      - db
     networks:
       - app-network
 
