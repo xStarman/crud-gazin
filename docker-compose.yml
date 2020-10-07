@@ -1,0 +1,42 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: laravelgazin
+    container_name: crud-gazin
+    restart: unless-stopped
+    tty: false
+    ports:
+      - "8080:80"
+    environment:
+      DB_HOST: mysql
+      DB_PASSWORD: cg4z1N
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - app-network
+
+  db:
+    image: mysql:5.7.22
+    container_name: db
+    restart: unless-stopped
+    tty: false
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: crud-gazin
+      MYSQL_ROOT_PASSWORD: cg4z1N
+      SERVICE_NAME: mysql
+    volumes:
+      - dbdata:/var/lib/mysql/
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  dbdata:
+    driver: local
