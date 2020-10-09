@@ -106,3 +106,36 @@ Status 400
   ]
 }
 ```
+
+#### PUT /developers/{id}
+> Atualiza um desenvolvedor de acordo com o id informado
+
+parâmetro | tipo | obrigatório | descrição
+:--------- | :--------- | :--------- | :--------- 
+nome | string | sim | Nome do desenvolvedor
+sexo | char | sim | Gênero do desenvolvedor [F => feminino, M => masculino, O => outro]
+hobby | string | sim | Hobby do desenvolvedor
+datanascimento | date | sim | Data de nascimento do desenvolvedor
+
+```json
+Status 204
+Empty
+
+```
+```json
+Status 400
+{
+  "nome": [
+    "O nome é obrigatório."
+  ],
+  "sexo": [
+    "O sexo é obrigatório."
+  ],
+  "hobby": [
+    "O hobby é obrigatório."
+  ],
+  "datanascimento": [
+    "A data de nascimento é obrigatória."
+  ]
+}
+```
