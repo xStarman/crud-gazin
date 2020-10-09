@@ -81,6 +81,7 @@ class DevelopersController extends Controller
     }
 
     /**
+     * @param integer $developerId
      * @param Request $request
      * @return Response null|ValidationError
      */
@@ -96,12 +97,32 @@ class DevelopersController extends Controller
             $developer = Developer::find($developerId);
 
             if(!$developer){
-                return response()->json(null, 404);
+                return response()->json(["id" => ["O id informado é inválido"]], 400);
             }
             $developer->fill($requestData);
             $developer->setIdadeAttribute();
             $developer->save();
 
+            return response()->json(null, 204);
+        } catch (\Exception $e) {
+            $code =  $e->getCode();
+            return response()->json(["error" => "Houve um erro interno. ERRNO: $code"], 500);
+        }
+    }
+
+    /**
+     * @param integer $developerId
+     * @return Response null
+     */
+    public function deleteDeveloper($developerId)
+    {
+        try {
+            $developer = Developer::find($developerId);
+
+            if(!$developer){
+                return response()->json(["id" => ["O id informado é inválido"]], 400);
+            }
+            $developer->delete();
             return response()->json(null, 204);
         } catch (\Exception $e) {
             $code =  $e->getCode();

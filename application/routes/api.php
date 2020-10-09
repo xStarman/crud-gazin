@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::post('/developers', [DevelopersController::class, 'createDeveloper']);
 Route::get('/developers/{id?}', [DevelopersController::class, 'listDevelopers']);
 Route::put('/developers/{id}', [DevelopersController::class, 'updateDeveloper']);
+Route::delete('/developers/{id}', [DevelopersController::class, 'deleteDeveloper']);
