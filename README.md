@@ -125,6 +125,9 @@ Empty
 ```json
 Status 400
 {
+  "id" : [
+    "O id informado é inválido"
+  ],
   "nome": [
     "O nome é obrigatório."
   ],
@@ -139,3 +142,21 @@ Status 400
   ]
 }
 ```
+
+#### DELETE /developers/{id}
+> Remove o desenvolvedor pelo id informado
+
+```json
+Status 204
+Empty
+
+```
+```json
+Status 400
+{
+  "id" : [
+    "O id informado é inválido"
+  ]
+}
+```
+
