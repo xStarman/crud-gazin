@@ -1,8 +1,8 @@
 # Comandos
 #### Verificar conexão com o banco de dados
-> `$ docker exec crud-gazin "php artisan migrate:status"`
+> `$ docker exec crud-gazin "php /var/www/html/application/artisan migrate:status"`
 #### Gerar tabelas do banco de dados
-> `$ docker exec crud-gazin "php artisan migrate"`
+> `$ docker exec crud-gazin "php /var/www/html/application/artisan migrate"`
 
 
 # Endpoints
