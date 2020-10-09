@@ -6,5 +6,6 @@ RUN mkdir /var/www/html/application
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN sed -ri -e 's!/var/www/html!/var/www/html/application/public!g' /etc/apache2/sites-available/*.conf
 RUN sed -ri -e 's!/var/www/!/var/www/html/application/public!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
+RUN a2enmod rewrite
 RUN service apache2 restart
-# CMD ["composer", "install", "-d", "/var/www/html/application"]
+#CMD ["composer", "install", "-d", "/var/www/html/application"]

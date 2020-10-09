@@ -15,11 +15,11 @@ class CreateDevelopersTable extends Migration
     {
         Schema::create('developers', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->enum("gender", ["M", "F", "O"]);
-            $table->integer("age");
+            $table->string("nome");
+            $table->enum("sexo", ["M", "F", "O"]);
+            $table->integer("idade");
             $table->string("hobby");
-            $table->date("birthdate");
+            $table->date("datanascimento");
             $table->timestamps();
         });
     }
