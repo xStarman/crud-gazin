@@ -62,7 +62,7 @@ Status 200
 ```
 ```json
 Status 404
-{}
+[]
 ```
 
 #### POST /developers
