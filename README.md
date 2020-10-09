@@ -1,3 +1,10 @@
+# Comandos
+#### Verificar conexão com o banco de dados
+> `$ docker exec crud-gazin "php artisan migrate:status"`
+#### Gerar tabelas do banco de dados
+> `$ docker exec crud-gazin "php artisan migrate"`
+
+
 # Endpoints
 #### GET /developers/{id} 
 > Retorna um unico desenvolvedor de acordo com o id informado
