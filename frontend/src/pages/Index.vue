@@ -4,6 +4,7 @@
       @search="search"
       title="Desenvolvedores"
       xsTitle="DEV"
+      :minlen="1"
     ></searchbar>
     <developer-list :developers="developers" :loading="loading" />
     <div class="q-px-lg q-pt-md text-right" style="">
