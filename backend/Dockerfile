@@ -11,3 +11,4 @@ RUN service apache2 restart
 ADD . /var/www/html/application
 WORKDIR /var/www/html/application
 RUN composer install
+RUN chmod 777 -R storage
