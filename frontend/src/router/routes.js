@@ -4,12 +4,12 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: '', component: () => import('pages/Index.vue') },
+      { path: '/developer/:id', component: () => import('pages/EditDeveloper.vue'), name: "editDeveloper"  },
+      { path: '/new-developer', component: () => import('pages/CreateDeveloper.vue'), name: "createDeveloper"  }
     ]
   },
 
-  // Always leave this as last one,
-  // but you can also remove it
   {
     path: '*',
     component: () => import('pages/Error404.vue')
