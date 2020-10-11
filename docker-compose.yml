@@ -2,10 +2,10 @@ version: "3"
 services:
   app:
     build:
-      context: .
+      context: ./backend
       dockerfile: Dockerfile
     image: laravelgazin
-    container_name: crud-gazin
+    container_name: gazin-back
     restart: unless-stopped
     tty: false
     ports:
@@ -14,16 +14,34 @@ services:
       DB_HOST: db
       DB_PASSWORD: cg4z1N
       DB_DATABASE: crud-gazin
-    working_dir: /var/www/html
+    working_dir: /var/www/html/application
     volumes:
-      - ./:/var/www/html
+      - ./backend:/var/www/html/application
     depends_on:
       - db
     links:
       - db
     networks:
       - app-network
-
+  front:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: gazinfront
+    container_name: gazin-front
+    restart: unless-stopped
+    tty: false
+    ports:
+      - "8081:80"
+    environment:
+      BACKEND_URL: localhost:8080
+    depends_on:
+      - app
+    links:
+      - app
+    networks:
+      - app-network
+  
   db:
     image: mysql:5.7.22
     container_name: db
