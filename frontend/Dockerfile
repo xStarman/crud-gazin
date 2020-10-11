@@ -8,4 +8,4 @@ RUN npm install
 COPY . .
 RUN quasar build -m spa
 EXPOSE 8080
-CMD [ "quasar", "serve", "./dist/spa", "8081", "-p", "8081", "&"]
+CMD [ "quasar", "serve", "./dist/spa", "80", "-p", "80", "&"]

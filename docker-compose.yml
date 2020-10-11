@@ -4,9 +4,8 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    command: sh -c "composer install /var/www/html/application"
     image: laravelgazin
-    container_name: backendgazin
+    container_name: gazin-back
     restart: unless-stopped
     tty: false
     ports:
@@ -17,7 +16,7 @@ services:
       DB_DATABASE: crud-gazin
     working_dir: /var/www/html/application
     volumes:
-      - ./:/var/www/html/application
+      - ./backend:/var/www/html/application
     depends_on:
       - db
     links:
@@ -33,16 +32,16 @@ services:
     restart: unless-stopped
     tty: false
     ports:
-      - "8080:80"
+      - "8081:80"
     environment:
-      BACKEND_HOST: app
+      BACKEND_URL: localhost:8080
     depends_on:
       - app
     links:
       - app
     networks:
       - app-network
-
+  
   db:
     image: mysql:5.7.22
     container_name: db
