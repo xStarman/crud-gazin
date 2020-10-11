@@ -2,7 +2,7 @@
 #### Gerar tabelas do banco de dados
 > `$ docker exec gazin-back "php /var/www/html/application/artisan migrate"`
 #### Executar testes
-docker exec -it gazin-back php /var/www/html/application/artisan test --env=test
+> `docker exec -it gazin-back php /var/www/html/application/artisan test --env=test`
 
 
 # Endpoints
