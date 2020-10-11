@@ -1,1 +1,10 @@
 // app global css in SCSS form
+body{
+    background: #bdc3c7;
+}
+@media screen and (max-width:600px){
+
+    .q-pt-xss-none{
+        padding-top: 0!important;
+    }
+}

@@ -8,6 +8,6 @@ RUN sed -ri -e 's!/var/www/html!/var/www/html/application/public!g' /etc/apache2
 RUN sed -ri -e 's!/var/www/!/var/www/html/application/public!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
 RUN a2enmod rewrite
 RUN service apache2 restart
-# ADD . /var/www/html/application
-# WORKDIR /var/www/html/application
-# RUN composer install
+ADD . /var/www/html/application
+WORKDIR /var/www/html/application
+RUN composer install
